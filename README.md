@@ -4,7 +4,7 @@
 
 ## Models
 - Post -> date:date rationale:text
-x User -> Devise
+- User -> Devise [done]
 - AdminUser -> STI
 
 ## Features:
