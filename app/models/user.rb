@@ -9,4 +9,8 @@ class User < ApplicationRecord
 
 
     validates :email,:password,:password_confirmation,:first_name,:last_name, presence:true 
-end
+
+    def full_name 
+    	last_name.upcase + ", "  + first_name.upcase
+    end
+ end
