@@ -8,5 +8,10 @@ describe 'navigate' do
       visit root_path
       expect(page.status_code).to eq(200)
     end
+
+    it 'has link to create new post' do
+      visit root_path
+   	  click_link('new_post_from_nav')
+    end
   end
 end
