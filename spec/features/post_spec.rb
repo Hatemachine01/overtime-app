@@ -79,6 +79,11 @@ describe 'navigate' do
         
       expect(page).to have_content("Edited Content")
      end
+       
+       it "can be deleted" do 
+        visit posts_path
+        click_link('DELETE')
+      end
     end
   end
 end
