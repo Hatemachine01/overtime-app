@@ -46,6 +46,7 @@ group :development, :test do
   gem 'database_cleaner'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'factory_girl_rails', '~> 4.5'
 
 end
 
