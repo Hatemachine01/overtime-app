@@ -28,6 +28,7 @@ gem 'sdoc'
 
 gem 'devise', '~> 4.2'
 gem 'bootstrap-sass'
+gem 'gritter' , '1.2.0'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
