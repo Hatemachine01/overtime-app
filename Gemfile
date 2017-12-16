@@ -31,6 +31,7 @@ gem 'bootstrap-sass'
 gem 'gritter' , '1.2.0'
 gem 'administrate' 
 gem 'bourbon'
+gem 'pundit'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
