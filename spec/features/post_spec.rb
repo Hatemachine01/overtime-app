@@ -27,10 +27,16 @@ describe 'navigate' do
     end
 
     it 'has a scope so that only post creators can see their posts' do
-      post1 = FactoryGirl.build_stubbed(:post)
-      post2 = FactoryGirl.build_stubbed(:second_post)
-      post_from_other_user = FactoryGirl.build_stubbed(:post_from_other_user)
-      byebug
+      post1 = Post.create(date: Date.today, rationale: "asdf" , user_id: @user.id)
+      post2 = Post.create(date: Date.today, rationale: "asdf" , user_id: @user.id)
+      
+      other_user = User.create(first_name: "Non" , last_name: "Authorize" , email: "noauth@email.com" , password: "12345678" , password_confirmation: "12345678")
+      post_from_other_user = Post.create(date: Date.today, rationale: "This post shouldn't be seen"  , user_id: other_user)
+
+      visit posts_path
+      expect(page).to_not have_content(/This post shouldn't be seen/)
+      
+    
     end
   end
 
@@ -46,6 +52,9 @@ describe 'navigate' do
   describe 'delete' do
     it 'can be deleted' do
       @post = FactoryGirl.create(:post)
+        #TODO refactor
+
+      @post.update(user_id: @user.id)
       visit posts_path
 
       click_link("delete_post_#{@post.id}_from_index")
