@@ -57,7 +57,7 @@ describe 'navigate' do
       delete_user = FactoryGirl.create(:user)
       login_as(delete_user, :scope => :user)
 
-      post_to_delete = Post.create(date: Date.today, rationale: "asdf" , user_id :delete_user.id)
+      post_to_delete = Post.create(date: Date.today, rationale: "asdf" , user_id: delete_user.id)
      
       visit posts_path
 
