@@ -3,7 +3,7 @@ require 'rails_helper'
 describe 'navigate' do
   let(:user) {FactoryGirl.create(:user)}
   let(:post) do 
-    Post.create(date: Date.today , rationale: "Rationale" , user_id: user.id)
+    Post.create(date: Date.today , rationale: "Rationale" , user_id: user.id , overtime_request: 2.5)
    end
 
   before do
@@ -32,7 +32,7 @@ describe 'navigate' do
 
     it 'has a scope so that only post creators can see their posts' do  
       other_user = User.create(first_name: "Non" , last_name: "Authorize" , email: "noauth@email.com" , password: "12345678" , password_confirmation: "12345678")
-      post_from_other_user = Post.create(date: Date.today, rationale: "This post shouldn't be seen"  , user_id: other_user)
+      post_from_other_user = Post.create(date: Date.today, rationale: "This post shouldn't be seen"  , user_id: other_user , overtime_request: 2.5)
 
       visit posts_path
       expect(page).to_not have_content(/This post shouldn't be seen/)
@@ -57,7 +57,7 @@ describe 'navigate' do
       delete_user = FactoryGirl.create(:user)
       login_as(delete_user, :scope => :user)
 
-      post_to_delete = Post.create(date: Date.today, rationale: "asdf" , user_id: delete_user.id)
+      post_to_delete = Post.create(date: Date.today, rationale: "asdf" , user_id: delete_user.id , overtime_request: 2.5)
      
       visit posts_path
 
