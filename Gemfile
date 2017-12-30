@@ -33,6 +33,7 @@ gem 'administrate'
 gem 'bourbon'
 gem 'pundit'
 gem 'puma', '~> 3.11'
+gem 'twilio-ruby', '~> 5.6'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
