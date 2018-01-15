@@ -8,7 +8,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
 
-    validates :email,:password,:password_confirmation,:first_name,:last_name, presence:true 
+    validates :email,:password,:password_confirmation,:first_name,:last_name, :phone , presence:true 
 
     def full_name 
     	last_name.upcase + ", "  + first_name.upcase
