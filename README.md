@@ -22,7 +22,4 @@
 - Update the style for forms
 
 ## TODOS:
-- Integrate validations for user attr in User
-	#No space or dashes
-	#all characters have to be a number
-	#exactly 10 characters
+- Integrate validations for user phone  attr in User [DONE]
