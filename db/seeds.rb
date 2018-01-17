@@ -10,7 +10,7 @@
 	email: "admin@admin.com", 
 	password: "12345678", 
 	password_confirmation: "12345678",
-	phone: "7186737301"))
+	phone: "7186737301")
 
 puts "1 User Created + 1 adminUser"
 
@@ -19,3 +19,12 @@ puts "1 User Created + 1 adminUser"
 end
 
 puts "100 posts have been created"
+
+100.times do |auditlog|
+	AuditLog.create!(user_id: User.last.id, status: 0, start_date: (Date.today - 6.days))
+end
+
+puts "100 Auditlogs have been created"
+
+
+
