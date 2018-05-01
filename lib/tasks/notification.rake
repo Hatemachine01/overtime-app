@@ -16,6 +16,7 @@ namespace :notification do
       notification_message = "Check Overtime Page to review your hours"
 
       employees.each do |employee|
+        AuditLog.create!(user_id: employee.id)
         SmsTool.send_sms(number: employee.phone, message: notification_message)
       end
     end
