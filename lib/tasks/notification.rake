@@ -1,17 +1,24 @@
 namespace :notification do
   desc "Sends SMS notification to employees asking them to log if they had overtime or not"
   task sms: :environment do
-  	puts 'Im in a rake task!'
   	#1.schedule to run every sunday at 5pm
-  	#2. Iterarate over all employees
-  	#3. Skip adminUsers
-  	#4. Send a message that has instructions and a link to log time
-  	#User.all.each do |user|
-  		#SmsTool.send_sms()
-  	#end
-  	#no spaces or dashes
-  	#exactly 10 characters
-  	#all characters have to be numbers
+    #2. Iterarate over all employees
+    #3. Skip adminUsers
+    #4. Send a message that has instructions and a link to log time
+    #User.all.each do |user|
+      #SmsTool.send_sms()
+    #end
+    #no spaces or dashes
+    #exactly 10 characters
+    #all characters have to be numbers
+    if Time.now.monday?
+      employees = Employee.all
+      notification_message = "Check Overtime Page to review your hours"
+
+      employees.each do |employee|
+        SmsTool.send_sms(number: employee.phone, message: notification_message)
+      end
+    end
   end
 
     desc "Sends mail notofication to manager (admin users) each day to inform of pending overtime requests"
