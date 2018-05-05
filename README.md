@@ -14,6 +14,12 @@
 - Email summary to managers for approval
 - Needs to be documented if employee did not log overtime
 - Block non admin and guest users [DONE]
+- Create audit log for each text message
+- Needt to update end_date when confirmed
+- Need to update audit log status when an overtime item has been rejected
+- Home Icons
+- Update Sort order
+- Remove uncessary nav bar buttons for managers
 
 
 ## UI:
